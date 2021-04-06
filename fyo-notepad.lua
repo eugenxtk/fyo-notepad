@@ -104,12 +104,7 @@ function applyCustomImguiStyle()
 end
 
 function openGivenNote(args)
-	args = splitStringIntoParts(args, ' ')
-	if #args == 0 then
-		return openScriptMenu()
-	end
-
-	local idx = tonumber(args[1])
+	local idx = tonumber(args)
 	if (idx == nil) or not (1 <= idx and idx <= MAX_NOTES) then
 		return openScriptMenu()
 	end
