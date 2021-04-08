@@ -26,9 +26,9 @@ if not doesFileExist(CONFIG_FILE_PATH) then
 	for idx = 1, MAX_NOTES do
 		defaultNotesConfig[idx] = {}
 
-		defaultNotesConfig[idx]['name'] = 'Название заметки'
+		defaultNotesConfig[idx]['name'] = 'ГЌГ Г§ГўГ Г­ГЁГҐ Г§Г Г¬ГҐГІГЄГЁ'
 
-		defaultNotesConfig[idx]['text'] = 'Введите текст заметки'
+		defaultNotesConfig[idx]['text'] = 'Г‚ГўГҐГ¤ГЁГІГҐ ГІГҐГЄГ±ГІ Г§Г Г¬ГҐГІГЄГЁ'
 
 		defaultNotesConfig[idx]['position'] = {}
 		local width, height = getScreenResolution()
@@ -104,12 +104,7 @@ function applyCustomImguiStyle()
 end
 
 function openGivenNote(args)
-	args = splitStringIntoParts(args, ' ')
-	if #args == 0 then
-		return openScriptMenu()
-	end
-
-	local idx = tonumber(args[1])
+	local idx = tonumber(args)
 	if (idx == nil) or not (1 <= idx and idx <= MAX_NOTES) then
 		return openScriptMenu()
 	end
@@ -157,13 +152,13 @@ function imgui.OnDrawFrame()
 		local width, height = getScreenResolution()
 		imgui.SetNextWindowPos(imgui.ImVec2(width / 2, height / 2), imgui.Cond.Always, imgui.ImVec2(0.5, 0.5))
 
-		imgui.Begin(u8('Меню'), menuState, imgui.WindowFlags.AlwaysAutoResize)
+		imgui.Begin(u8('ГЊГҐГ­Гѕ'), menuState, imgui.WindowFlags.AlwaysAutoResize)
 
 		for idx = 1, MAX_NOTES do
 			useCustomInputText(string.format('##%d', idx), noteNames[idx], string.format('%d', idx))
 			imgui.Text('  ')
 			imgui.SameLine()
-			if imgui.Button(u8(string.format('%s##%d', not noteStates[idx].v and 'Открыть' or 'Закрыть', idx))) then
+			if imgui.Button(u8(string.format('%s##%d', not noteStates[idx].v and 'ГЋГІГЄГ°Г»ГІГј' or 'Г‡Г ГЄГ°Г»ГІГј', idx))) then
 				noteStates[idx].v = not noteStates[idx].v
 			end
 
@@ -171,7 +166,7 @@ function imgui.OnDrawFrame()
 		end
 			
 		imgui.Separator()
-		useCustomInputText('##maxLineLength', maxLineLength, u8('Макс. длина строки:'))
+		useCustomInputText('##maxLineLength', maxLineLength, u8('ГЊГ ГЄГ±. Г¤Г«ГЁГ­Г  Г±ГІГ°Г®ГЄГЁ:'))
 
 		local newMaxLength = tonumber(maxLineLength.v)
 		if newMaxLength ~= nil then
