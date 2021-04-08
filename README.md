@@ -1,6 +1,6 @@
 # fyo-notepad
 
-Скачать текущую версию скрипта для:
+Скачать текущую версию скрипта:
   * SA-MP 0.3.7-R1: https://github.com/xxekichsiht/fyo-notepad/releases/download/v1.0/fyo-notepad-v1.0.rar
   * SA-MP 0.3DL-R1: https://github.com/xxekichsiht/fyo-notepad/releases/download/03dl-v1.0/fyo-notepad-03dl-v1.0.rar
 
